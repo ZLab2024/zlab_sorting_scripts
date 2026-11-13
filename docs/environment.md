@@ -80,6 +80,12 @@ No Qt installation is needed for the web GUI. The optional desktop GUI and legac
 sortingview notebook backends are not included; install those separately only
 when required. A base code-only install is `python -m pip install -e .`.
 
+The editable install also registers this project's `waveformensemble` and
+`spikesnippets` GUI entry points. After pulling plugin/packaging changes, reinstall with
+`python -m pip install --no-deps --no-build-isolation -e .` and restart the notebook
+kernel. Use `zsort.launch_curation_gui(..., mode="web")` for the GUI 0.11 bridge
+and its default visible ensemble panel; see [the ensemble guide](waveform_ensemble.md).
+
 ### Optional UnitRefine model labeling
 
 The lab's prior model audit found scikit-learn **1.4.2** in both models' training
@@ -136,7 +142,7 @@ SI 0.103.0, ProbeInterface 0.3.2, GUI 0.11.0, and Kilosort 4.1.1; scientific and
 notebook dependencies have broader bounds. This is an install specification,
 **not a fully locked environment or a claim of all-platform validation**. Linux
 Python 3.12 has fresh-environment installation and synthetic test coverage; see
-[the review validation](usability_review.md#validation-completed) for exact versions.
+[the current audit](maintenance_audit.md) for exact versions.
 Windows, macOS, other declared Python versions, and GPU sorting need their own
 acceptance runs. Wheel availability can differ by OS and architecture.
 
@@ -151,3 +157,12 @@ Also record OS, Python, GPU/driver, torch/CUDA versions, code revision, probe,
 sorter settings, curation config, and model commits. A freeze from another OS is
 not a universal replacement for requirements. Upgrade one environment copy at a
 time, run synthetic tests, then validate a small recording before sharing it.
+
+## Central runner extras
+
+The [central API](api.md) adds optional `.[mountainsort]` (MountainSort5 0.5.8
+and isosplit6 0.1.4) and `.[med]` (dhn-med-py 2.0.6 / Neo 0.14.4). Install only
+in the environment intended for that workflow. `.[sorter]` still selects KS4
+4.1.1. Reinstall the editable package after pulling this change to register
+`zsort`; `python -m sorting_scripts` works directly with the existing editable
+source registration. Optional packages are never installed at import/run time.

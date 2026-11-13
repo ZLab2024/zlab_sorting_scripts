@@ -1,0 +1,19 @@
+# Generic adapter for an installed SpikeInterface acquisition reader.
+[input]
+format = "spikeinterface"
+extractor = "spikeglx"
+path = "/data/imec_session"
+stream_id = "imec0.ap"
+
+[probe]
+# Supply actual matching device geometry/wiring; DeepArray is not a Neuropixels preset.
+preset = "/data/probes/verified_probe.json"
+replace_existing = true
+
+[sorting]
+backend = "kilosort4"
+profile = "deeparray_ks4"  # current multichannel KS4 preprocessing profile
+[curation]
+policy = "labels_only"
+[output]
+root = "/data/sorting_runs"

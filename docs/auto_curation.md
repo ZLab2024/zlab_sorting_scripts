@@ -1,9 +1,14 @@
 # Automated curation
 
-The [automatic notebook](../notebooks/z-sort_notebook_w_auto_curate.ipynb)
-keeps recording, sorting, and analyzer creation in `zsort`, followed by a small
-configuration and one call to [auto_curate](../src/sorting_scripts/auto_curate.py).
-No GUI interaction or saved GUI curation file is required.
+The central notebook is [central_sorting.ipynb](../notebooks/central_sorting.ipynb).
+Set an explicit `curation.policy` in the session configuration; `labels_only`
+defaults to no cleanup/rejection and no models. This document describes the
+underlying `AutoCurator` engine, whose legacy defaults include cleanup/merging
+and model labeling. Those defaults differ from the central runner.
+
+The former automatic notebook is preserved in
+[archive/notebooks](../archive/notebooks/z-sort_notebook_w_auto_curate.ipynb).
+Direct engine usage remains supported:
 
 ```python
 from sorting_scripts import auto_curate

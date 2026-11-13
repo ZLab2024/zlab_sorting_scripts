@@ -1,0 +1,20 @@
+[input]
+format = "med"
+path = "/data/subject/session.medd"
+stream_id = "0"                 # inspect available streams before choosing
+password_env = "MED_PASSWORD"   # set locally, never put the value in this file
+sampling_frequency = 32000
+
+[probe]
+preset = "bf_dummy8"            # consecutive 8-wire bundles, virtual geometry
+
+[sorting]
+backend = "mountainsort5"
+profile = "bf_bundle_ms5"
+seed = 0
+
+[curation]
+policy = "labels_only"
+
+[output]
+root = "/data/subject/sorting_runs"

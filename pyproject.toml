@@ -5,15 +5,17 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "sorting-scripts"
 version = "0.1.0"
-description = "Z-Lab Intan spike sorting and curation helpers"
-readme = "readme.md"
+description = "Central Z-Lab recording, probe, sorting, curation and inspection tools"
+readme = "README.md"
 requires-python = ">=3.10,<3.13"
 dependencies = [
     "spikeinterface[full]==0.103.0",
     "probeinterface==0.3.2",
     "numpy>=1.26,<3",
     "pandas>=2.1,<3",
+    "scipy>=1.11,<2",
     "matplotlib>=3.8,<4",
+    "tomli>=2,<3; python_version < '3.11'",
 ]
 
 [project.optional-dependencies]
@@ -25,12 +27,26 @@ gui = [
 ]
 notebook = ["ipykernel>=6,<8", "jupyterlab>=4,<5", "ipywidgets>=8,<9"]
 sorter = ["kilosort==4.1.1"]
+med = ["dhn-med-py==2.0.6", "neo==0.14.4"]
+mountainsort = ["mountainsort5==0.5.8", "isosplit6==0.1.4"]
 # Match the training environment declared by the currently documented models.
 # Changing sklearn can break serialized estimators.
 unitrefine = ["scikit-learn==1.4.2", "numpy>=1.26,<2"]
+
+[project.entry-points."spikeinterface_gui.views"]
+waveformensemble = "sorting_scripts.waveform_ensemble:WaveformEnsembleView"
+spikesnippets = "sorting_scripts.spike_snippets:SpikeSnippetsView"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+include = ["sorting_scripts*"]
+exclude = ["sorting_scripts.tests*"]
+
+[project.scripts]
+zsort = "sorting_scripts.cli:main"
+
+[tool.setuptools.package-data]
+"sorting_scripts.probes.resources" = ["*.json"]

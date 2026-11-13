@@ -15,9 +15,15 @@ class CurationGuiTests(unittest.TestCase):
         with patch("spikeinterface_gui.run_mainwindow", return_value="window") as launch:
             result = zsort.launch_curation_gui(analyzer, start_app=False, port=5007)
         self.assertEqual(result, "window")
-        launch.assert_called_once_with(
-            analyzer=analyzer, mode="web", curation=True, start_app=False, port=5007,
-        )
+        launch.assert_called_once()
+        options = launch.call_args.kwargs
+        self.assertIs(options["analyzer"], analyzer)
+        self.assertEqual(options["mode"], "web")
+        self.assertFalse(options["start_app"])
+        self.assertTrue(options["curation"])
+        self.assertEqual(options["layout"]["zone7"][0], "waveform")
+        self.assertEqual(options["layout"]["zone8"][0], "waveformensemble")
+        self.assertEqual(options["layout"]["zone3"][0], "spikesnippets")
         self.assertEqual(parameterized.docstring_describe_params, previous)
 
     def test_failed_import_propagates_and_restores_setting(self):

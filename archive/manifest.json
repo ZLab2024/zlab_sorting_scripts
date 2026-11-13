@@ -1,0 +1,119 @@
+{
+  "archived_on": "2026-11-13",
+  "files": [
+    {
+      "original": "notebooks/curation.json",
+      "archived": "archive/notebooks/curation.json",
+      "sha256": "c162206f8ca1e899ae3c1e2cc72e7eceb8eb15bc99f801bc6ae5cf696c1408c9",
+      "bytes": 6826
+    },
+    {
+      "original": "notebooks/manage_data.ipynb",
+      "archived": "archive/notebooks/manage_data.ipynb",
+      "sha256": "207ac52e71874354f9d0be5a5c656a7db02763bbb624c8c0b469d7b67fe33f8e",
+      "bytes": 2791
+    },
+    {
+      "original": "notebooks/qualitative.ipynb",
+      "archived": "archive/notebooks/qualitative.ipynb",
+      "sha256": "3432ec9fc00fda5f6ff39f45e445bc5808bb1269b7c031e155ec151104aa8a29",
+      "bytes": 6865
+    },
+    {
+      "original": "notebooks/sort_csc.ipynb",
+      "archived": "archive/notebooks/sort_csc.ipynb",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "notebooks/sort_intan.ipynb",
+      "archived": "archive/notebooks/sort_intan.ipynb",
+      "sha256": "6207516f4ab6d2e9be0f29916c3308a4b8b21f5b8f90f4fd121c6a42a71edf37",
+      "bytes": 46426
+    },
+    {
+      "original": "notebooks/z-sort_notebook.ipynb",
+      "archived": "archive/notebooks/z-sort_notebook.ipynb",
+      "sha256": "10f443cf9d0d38dba559e06c2086cf0ebdbe364f833ae3007fe6b3825d21d63f",
+      "bytes": 290293
+    },
+    {
+      "original": "notebooks/z-sort_notebook_w_auto_curate.ipynb",
+      "archived": "archive/notebooks/z-sort_notebook_w_auto_curate.ipynb",
+      "sha256": "79d31473c0be40b393d0c2484a9cab04f74f7db4afe8384ec54c499deaaa499f",
+      "bytes": 715302
+    },
+    {
+      "original": "load_sorter.ipynb",
+      "archived": "archive/notebooks/load_sorter.ipynb",
+      "sha256": "bb921114a1b5157e882150eee9e69e7902210d373ebf4ec664e81767fcf23f14",
+      "bytes": 49127
+    },
+    {
+      "original": "docs/usability_review.md",
+      "archived": "archive/docs/usability_review.md",
+      "sha256": "3763789393479f272fb1ab65964e76166440c3814db637be89a6d1afe77002e8",
+      "bytes": 8773
+    },
+    {
+      "original": "docs/consolidation_plan.md",
+      "archived": "archive/docs/consolidation_plan.md",
+      "sha256": "92a224b3b8b6acfbcccec03666e87a27974e6e8efac9f648b7c9d71038a9078d",
+      "bytes": 16122
+    },
+    {
+      "original": "docs/consolidation_status.md",
+      "archived": "archive/docs/consolidation_status.md",
+      "sha256": "326f291c57dedb98b96e53b66ee1af0eb55d8e7f162d3e144cca6958e7a58f8c",
+      "bytes": 5869
+    },
+    {
+      "original": "docs/auto_curation_instructions.md",
+      "archived": "archive/docs/auto_curation_instructions.md",
+      "sha256": "55ce6243c51b13730766c0026b40ce56edb4de1d662b14360ca99bca9d93099c",
+      "bytes": 2403
+    },
+    {
+      "original": "docs/hf_noise_prediction_model.md",
+      "archived": "archive/docs/hf_noise_prediction_model.md",
+      "sha256": "e5c282a9e5c8acf81f0fa95bac42274069f87ae8ee4c8885fdcc2173a989edcb",
+      "bytes": 10368
+    },
+    {
+      "original": "docs/config-instructions.md",
+      "archived": "archive/docs/config-instructions.md",
+      "sha256": "c0c84a35ffbf4ceecab003c089c6afe81c611ef5289191c750ffc56f3bd9b327",
+      "bytes": 1129
+    },
+    {
+      "original": "docs/installing_source.md",
+      "archived": "archive/docs/installing_source.md",
+      "sha256": "bccbc6970842e039ce4883a0be08dd186318df51e283d0e4f55043e9d7abc9a6",
+      "bytes": 662
+    },
+    {
+      "original": "docs/start_ec2_instance.md",
+      "archived": "archive/docs/start_ec2_instance.md",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "docs/ssh_into_aws_machine.md",
+      "archived": "archive/docs/ssh_into_aws_machine.md",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "original": "readme.md",
+      "archived": "archive/docs/readme_2026-11-06.md",
+      "sha256": "a870dbe66b4a6b140aa4619531451dbcc62f0ce91aedb99be430e4411e6d35fb",
+      "bytes": 12817
+    },
+    {
+      "original": "agent_reference.md",
+      "archived": "archive/docs/agent_reference_2026-11-06.md",
+      "sha256": "72515b360ee53051e4944ada321659b4cfdb242dd44039f959859cbc1bcec48a",
+      "bytes": 8035
+    }
+  ]
+}

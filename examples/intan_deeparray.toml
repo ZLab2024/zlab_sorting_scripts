@@ -1,0 +1,23 @@
+# Copy this file and edit paths. All relative paths resolve against this file.
+[input]
+format = "intan"
+path = "/data/subject/session/raw"
+stream_id = "0"
+
+[probe]
+preset = "deeparray128"
+# channel_map = "channels.csv"  # contact order -> source channel IDs
+
+[sorting]
+backend = "kilosort4"
+profile = "deeparray_ks4"
+seed = 0
+[sorting.params]
+batch_size = 60000
+clear_cache = false
+
+[curation]
+policy = "labels_only"          # preserves units/events; models off
+
+[output]
+root = "/data/subject/sorting_runs"  # outside raw input tree

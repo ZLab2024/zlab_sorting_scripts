@@ -38,6 +38,16 @@ class WrapperTests(unittest.TestCase):
         analyze.assert_called_once_with("probed", "sorting", paths)
         self.assertEqual(result["summary"]["data"]["step"], "sort_analyze")
 
+    def test_config_uses_central_runner(self):
+        from sorting_scripts import pipeline
+        with patch.object(pipeline,'run',return_value=Path('/example/run')) as run, \
+             patch.object(pipeline,'status',return_value={'status':'complete'}) as status, \
+             patch.object(wrapper,'_write_output_json',return_value=None):
+            result=wrapper.main({}, {'config':'session.toml'}, Mock())
+        run.assert_called_once_with('session.toml',resume=None)
+        status.assert_called_once_with(Path('/example/run'))
+        self.assertEqual(result['summary']['data']['status'],'complete')
+
     def test_invalid_step_fails_before_creating_outputs(self):
         with patch.object(zsort, "set_paths") as set_paths:
             with self.assertRaisesRegex(ValueError, "Unknown processing step"):

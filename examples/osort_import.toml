@@ -1,0 +1,26 @@
+# Import existing clusters: no fresh detection or clustering is performed.
+[input]
+format = "neuralynx"
+path = "/data/subject/session/micros"
+channel_ids = [265, 266, 267, 268, 269, 270, 271, 272]  # match extractor IDs/types
+
+[probe]
+preset = "bf_single8"
+
+[sorting]
+backend = "osort_import"
+profile = "osort_import"
+
+# Add one entry for every selected independent channel (8 for this preset).
+# The full list is required; this is one entry's schema, not a runnable dataset.
+[[sorting.osort]]
+channel_id = 265
+mat_file = "/data/subject/session/sort/A_ss265_sorted_new.mat"
+record_timestamps_file = "/data/subject/session/retained_record_starts_us.npy"
+# Alternatively start_time_us = 0.0, only for a verified continuous sample grid.
+
+[curation]
+policy = "single_wire_merge_preserve_events"
+
+[output]
+root = "/data/subject/sorting_runs"

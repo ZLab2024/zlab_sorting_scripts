@@ -1,0 +1,19 @@
+[input]
+format = "binary"
+path = "/data/session/traces.raw"
+sampling_frequency = 30000
+[input.reader_kwargs]
+dtype = "int16"
+num_channels = 8
+gain_to_uV = 0.195
+offset_to_uV = 0.0
+
+[probe]
+preset = "bf_single8"
+[sorting]
+backend = "mountainsort5"
+profile = "bf_single_wire"
+[curation]
+policy = "labels_only"
+[output]
+root = "/data/sorting_runs"

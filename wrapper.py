@@ -1,6 +1,6 @@
 """SAW workspace plugin wrapper for zlab_sorting_script.
 
-This wraps the logic from the notebook `notebooks/z-sort_notebook.ipynb` into a single callable:
+This wraps the logic from the notebook `archive/notebooks/z-sort_notebook.ipynb` into a single callable:
   main(inputs: dict, params: dict, context) -> dict
 """
 
@@ -14,6 +14,9 @@ from typing import Any
 
 
 def _ensure_src_on_path() -> None:
+    from importlib.util import find_spec
+    if find_spec('sorting_scripts') is not None:
+        return
     here = Path(__file__).resolve().parent
     src = str(here / "src")
     if src not in sys.path:
@@ -33,6 +36,16 @@ def _write_output_json(name: str, payload: dict[str, Any]) -> str | None:
 
 def main(inputs: dict, params: dict, context) -> dict:
     _ensure_src_on_path()
+
+    # New configuration path: shared runner used by CLI and notebooks.
+    if (params or {}).get("config") is not None:
+        from sorting_scripts.pipeline import run, status
+        folder = run(params["config"], resume=(params or {}).get("resume"))
+        summary = {"run": str(folder), **status(folder)}
+        summary_json = _write_output_json("summary.json", summary)
+        if summary_json:
+            summary["outputs_dir_file"] = summary_json
+        return {"summary": {"data": summary, "metadata": {}}}
 
     from sorting_scripts import zsort  # noqa: WPS433
 
